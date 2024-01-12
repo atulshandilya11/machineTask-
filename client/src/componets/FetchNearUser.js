@@ -108,6 +108,7 @@ function FetchNearUser() {
                 <Typography>
                   {user.name} - {user.email}
                 </Typography>
+                <Typography>{user.zipCode}</Typography>
               </ListItem>
             ))}
           </List>

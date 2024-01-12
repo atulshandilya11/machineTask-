@@ -94,8 +94,6 @@ const userController = {
     const currentUser = await User.findById(req.params.userId);
 
     const { lat, long } = currentUser;
-    console.log(lat, long);
-
     try {
       const nearestUsers = await User.find({
         _id: { $ne: currentUser._id },
@@ -116,9 +114,9 @@ const userController = {
         .slice(0, 3);
       const mappedUsers = sortedNearestUsers.map((user) => ({
         name: user.name,
-        // profilePic: user.profilePic,
+        profilePic: user.profilePic,
         email: user.email,
-        phone: user.phone,
+        zipCode: user.zipCode,
       }));
 
       res.json(mappedUsers);
